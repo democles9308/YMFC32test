@@ -1,3 +1,6 @@
+
+#include "globals.h"
+
 void check_motor_vibrations(void) {
   //Let's declare some variables so we can use them in this subroutine.
   //int16_t = signed 16 bit integer

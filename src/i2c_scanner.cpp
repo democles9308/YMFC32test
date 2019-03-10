@@ -1,3 +1,6 @@
+
+#include "globals.h"
+
 void i2c_scanner(void) {
   //The YMFC-32 flight controller expects some I2C devices. So let's print them on the
   //serial monitor as a reminder

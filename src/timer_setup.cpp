@@ -4,6 +4,9 @@
 //STM32 for Arduino - Connecting an RC receiver via input capture mode: https://youtu.be/JFSFbSg0l2M
 //STM32 for Arduino - Electronic Speed Controller (ESC) - STM32F103C8T6: https://youtu.be/Nju9rvZOjVQ
 //
+
+#include "globals.h"
+
 void timer_setup(void) {
   Timer2.attachCompare1Interrupt(handler_channel_1);
   TIMER2_BASE->CR1 = TIMER_CR1_CEN;

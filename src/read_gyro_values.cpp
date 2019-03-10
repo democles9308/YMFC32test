@@ -1,3 +1,7 @@
+
+#include "globals.h"
+
+
 void read_gyro_values(void) {
   cal_int = 0;                                                                        //If manual calibration is not used.
 

@@ -1,3 +1,5 @@
+#include "globals.h"
+
 void print_intro(void) {
   Serial.println(F(""));
   Serial.println(F(""));

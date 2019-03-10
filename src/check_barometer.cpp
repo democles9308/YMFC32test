@@ -1,27 +1,30 @@
+#include "globals.h"
+
 void check_barometer(void) {
   loop_counter = 0;
+  //baro_address = 0x77;
 
   //Check if the MS5611 is responding.
   HWire.begin();                                                  //Start the I2C as master
-  HWire.beginTransmission(MS5611_address);                        //Start communication with the MS5611.
+  HWire.beginTransmission(baro_address);                          //Start communication with the MS5611.
   error = HWire.endTransmission();                                //End the transmission and register the exit status.
   if (error != 0) {                                               //If the exit status is not 0 an error occurred.
     Serial.print("MS5611 is not responding on address: ");        //Print the error on the screen.
-    Serial.println(MS5611_address, HEX);
+    Serial.println(baro_address, HEX);
     data = 'q';                                                   //Set the data variable to 'q' so it automatically exits the loop.
   }
   else {                                                          //If the MS5611 is responding normal
     Serial.print("MS5611 found on address: ");                    //Print the conformation on the screen.
-    Serial.println(MS5611_address, HEX);
+    Serial.println(baro_address, HEX);
 
     //For calculating the pressure the 6 calibration values need to be polled from the MS5611.
     //These 2 byte values are stored in the memory location 0xA2 and up.
     for (start = 1; start <= 6; start++) {
-      HWire.beginTransmission(MS5611_address);                    //Start communication with the MPU-6050.
+      HWire.beginTransmission(baro_address);                    //Start communication with the MPU-6050.
       HWire.write(0xA0 + start * 2);                              //Send the address that we want to read.
       HWire.endTransmission();                                    //End the transmission.
 
-      HWire.requestFrom(MS5611_address, 2);                       //Request 2 bytes from the MS5611.
+      HWire.requestFrom(baro_address, 2);                       //Request 2 bytes from the MS5611.
       C[start] = HWire.read() << 8 | HWire.read();                //Add the low and high byte to the C[x] calibration variable.
     }
     //Print the 6 calibration values on the screen.
@@ -57,18 +60,18 @@ void check_barometer(void) {
     if (barometer_counter == 1) {
       if (temperature_counter == 0) {
         //Get temperature data from MS-5611
-        HWire.beginTransmission(MS5611_address);
+        HWire.beginTransmission(baro_address);
         HWire.write(0x00);
         HWire.endTransmission();
-        HWire.requestFrom(MS5611_address, 3);
+        HWire.requestFrom(baro_address, 3);
         raw_temperature = HWire.read() << 16 | HWire.read() << 8 | HWire.read();
       }
       else {
         //Get pressure data from MS-5611
-        HWire.beginTransmission(MS5611_address);
+        HWire.beginTransmission(baro_address);
         HWire.write(0x00);
         HWire.endTransmission();
-        HWire.requestFrom(MS5611_address, 3);
+        HWire.requestFrom(baro_address, 3);
         raw_pressure = HWire.read() << 16 | HWire.read() << 8 | HWire.read();
       }
 
@@ -76,13 +79,13 @@ void check_barometer(void) {
       if (temperature_counter > 9) {
         temperature_counter = 0;
         //Request temperature data
-        HWire.beginTransmission(MS5611_address);
+        HWire.beginTransmission(baro_address);
         HWire.write(0x58);
         HWire.endTransmission();
       }
       else {
         //Request pressure data
-        HWire.beginTransmission(MS5611_address);
+        HWire.beginTransmission(baro_address);
         HWire.write(0x48);
         HWire.endTransmission();
       }

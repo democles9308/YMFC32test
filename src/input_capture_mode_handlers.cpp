@@ -1,3 +1,7 @@
+
+#include "globals.h"
+
+  
   void handler_channel_1(void) {
     measured_time = TIMER2_BASE->CCR1 - measured_time_start;
     if (measured_time < 0)measured_time += 0xFFFF;

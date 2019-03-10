@@ -1,3 +1,6 @@
+
+#include "globals.h"
+
 void check_battery_voltage(void) {
   loop_counter = 0;                                                                       //Reset the loop counter.
   battery_voltage = analogRead(4);                                                        //Set battery voltage.

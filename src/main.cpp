@@ -39,7 +39,7 @@ int32_t dT, dT_C5;
 int16_t compass_x, compass_y, compass_z;
 
 uint8_t gyro_address = 0x68;               //The I2C address of the MPU-6050 is 0x68 in hexadecimal form.
-uint8_t MS5611_address = 0x77;             //The I2C address of the MS5611 barometer is 0x77 in hexadecimal form.
+uint8_t baro_address = 0x77;             //The I2C address of the MS5611 barometer is 0x77 in hexadecimal form.
 uint8_t compass_address = 0x1E;            //The I2C address of the HMC5883L is 0x1E in hexadecimal form.
 
 
@@ -62,21 +62,6 @@ void read_gyro_values(void);
 void reading_receiver_signals(void);
 void test_leds(void);
 void timer_setup(void);
-
-#include "check_barometer.h"
-#include "check_battery_voltage.h"
-#include "check_compass.h"
-#include "check_gps.h"
-#include "check_imu_angles.h"
-#include "check_motor_vibrations.h"
-#include "i2c_scanner.h"
-#include "input_capture_mode_handlers.h"
-#include "print_intro.h"
-#include "read_gyro_values.h"
-#include "reading_receiver_signals.h"
-#include "test_leds.h"
-#include "timer_setup.h"
-
 
 void setup() {
   pinMode(4, INPUT_ANALOG);

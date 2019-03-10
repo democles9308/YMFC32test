@@ -1,3 +1,6 @@
+
+#include "globals.h"
+
 void check_gps(void) {
   data = 0;
   loop_counter = 0;
