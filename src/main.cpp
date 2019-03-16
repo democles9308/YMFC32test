@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
+#include "globals.h"
 
 //HardWire HWire(2, I2C_FAST_MODE);
 TwoWire HWire (2, I2C_FAST_MODE);
@@ -23,6 +24,8 @@ int32_t channel_3_start, channel_3;
 int32_t channel_4_start, channel_4;
 int32_t channel_5_start, channel_5;
 int32_t channel_6_start, channel_6;
+int32_t channel_7_start, channel_7;
+int32_t channel_8_start, channel_8;
 int32_t measured_time, measured_time_start;
 uint8_t channel_select_counter;
 
@@ -38,12 +41,12 @@ int32_t dT, dT_C5;
 //Compass_variables.
 int16_t compass_x, compass_y, compass_z;
 
-uint8_t gyro_address = 0x68;               //The I2C address of the MPU-6050 is 0x68 in hexadecimal form.
-uint8_t baro_address = 0x77;             //The I2C address of the MS5611 barometer is 0x77 in hexadecimal form.
-uint8_t compass_address = 0x1E;            //The I2C address of the HMC5883L is 0x1E in hexadecimal form.
+const uint8_t gyro_address = 0x68;               //The I2C address of the MPU-6050 is 0x68 in hexadecimal form.
+const uint8_t baro_address = 0x77;             //The I2C address of the MS5611 barometer is 0x77 in hexadecimal form.
+const uint8_t compass_address = 0x1E;            //The I2C address of the HMC5883L is 0x1E in hexadecimal form.
 
 
-// declaire Procedures
+/* declaire Procedures
 void gyro_signalen(void);
 void red_led(int8_t level);
 void green_led(int8_t level);
@@ -62,6 +65,7 @@ void read_gyro_values(void);
 void reading_receiver_signals(void);
 void test_leds(void);
 void timer_setup(void);
+*/
 
 void setup() {
   pinMode(4, INPUT_ANALOG);

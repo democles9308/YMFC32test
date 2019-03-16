@@ -2,14 +2,14 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-extern TwoWire HWire; 
+extern class TwoWire HWire; 
 
 //int16_t = signed 16 bit integer
 //uint16_t = unsigned 16 bit integer
 
-extern uint8_t gyro_address;               //The I2C address of the MPU-6050 is 0x68 in hexadecimal form.
-extern uint8_t baro_address;               //The I2C address of the MS5611 barometer is 0x77 in hexadecimal form.
-extern uint8_t compass_address;            //The I2C address of the HMC5883L is 0x1E in hexadecimal form.
+extern const uint8_t gyro_address;               //The I2C address of the MPU-6050 is 0x68 in hexadecimal form.
+extern const uint8_t baro_address;               //The I2C address of the MS5611 barometer is 0x77 in hexadecimal form.
+extern const uint8_t compass_address;            //The I2C address of the HMC5883L is 0x1E in hexadecimal form.
 
 extern uint8_t disable_throttle, flip32;
 extern uint8_t error;
@@ -27,6 +27,8 @@ extern int32_t channel_3_start, channel_3;
 extern int32_t channel_4_start, channel_4;
 extern int32_t channel_5_start, channel_5;
 extern int32_t channel_6_start, channel_6;
+extern int32_t channel_7_start, channel_7;
+extern int32_t channel_8_start, channel_8;
 extern int32_t measured_time, measured_time_start;
 extern uint8_t channel_select_counter;
 

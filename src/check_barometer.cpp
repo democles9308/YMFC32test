@@ -2,10 +2,10 @@
 
 void check_barometer(void) {
   loop_counter = 0;
-  //baro_address = 0x77;
-
+  
   //Check if the MS5611 is responding.
   HWire.begin();                                                  //Start the I2C as master
+  
   HWire.beginTransmission(baro_address);                          //Start communication with the MS5611.
   error = HWire.endTransmission();                                //End the transmission and register the exit status.
   if (error != 0) {                                               //If the exit status is not 0 an error occurred.

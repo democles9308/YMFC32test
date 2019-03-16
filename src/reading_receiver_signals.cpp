@@ -48,7 +48,13 @@ void reading_receiver_signals(void) {
     Serial.print(channel_5);
 
     Serial.print("  CH6:");
-    Serial.println(channel_6);
+    Serial.print(channel_6);
+    
+    Serial.print("  CH7:");
+    Serial.print(channel_7);
+
+    Serial.print("  CH8:");
+    Serial.println(channel_8);
 
   }
   print_intro();
