@@ -53,7 +53,7 @@ void green_led(int8_t level);
 void blue_led(int8_t level);
 void check_barometer(void);
 void check_battery_voltage(void);
-void read_data();
+void read_data();a
 void check_compass(void);
 void check_gps(void);
 void check_imu_angles(void);
