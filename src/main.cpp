@@ -41,9 +41,9 @@ int32_t dT, dT_C5;
 //Compass_variables.
 int16_t compass_x, compass_y, compass_z;
 
-const uint8_t gyro_address = 0x68;               //The I2C address of the MPU-6050 is 0x68 in hexadecimal form.
+const uint8_t gyro_address = 0x68;             //The I2C address of the MPU-6050 is 0x68 in hexadecimal form.
 const uint8_t baro_address = 0x77;             //The I2C address of the MS5611 barometer is 0x77 in hexadecimal form.
-const uint8_t compass_address = 0x1E;            //The I2C address of the HMC5883L is 0x1E in hexadecimal form.
+const uint8_t compass_address = 0x1E;          //The I2C address of the HMC5883L is 0x1E in hexadecimal form.
 
 
 /* declaire Procedures

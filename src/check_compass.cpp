@@ -83,7 +83,9 @@ void check_compass(void) {
       Serial.print(" Z-axis:");
       Serial.print(compass_z);
       Serial.print(" Y-axis:");
-      Serial.println(compass_y);
+      Serial.print(compass_y);
+      Serial.print(" Heading:");
+      Serial.println(atan2((float)compass_y,(float)compass_x) *180/3.14159);
       loop_counter = 0;
     }
   }
