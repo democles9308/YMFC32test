@@ -264,10 +264,10 @@ void gyro_signalen(void) {
   }
 }
 void red_led(int8_t level) {
-    digitalWrite(PB3, !level);
+    digitalWrite(PB5, !level);
 }
 void green_led(int8_t level) {
-    digitalWrite(PB5, !level); 
+    digitalWrite(PB3, !level); 
 }
 void blue_led(int8_t level) {
     digitalWrite(PB4,!level);
