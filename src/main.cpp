@@ -127,7 +127,7 @@ void loop() {
     data = Serial.read();                                       //Read the incomming byte.
     delay(100);                                                 //Wait for any other bytes to come in.
     while (Serial.available() > 0)loop_counter = Serial.read(); //Empty the Serial buffer.
-    disable_throttle = 1;                                       //Set the throttle to 1000us to disable the motors.
+    disable_throttle = 0;                                       //Set the throttle to 1000us to disable the motors.
   }
 
   if (!disable_throttle) {                                      //If the throttle is not disabled.
